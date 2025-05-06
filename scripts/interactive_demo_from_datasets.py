@@ -72,9 +72,9 @@ def launch_gui(args):
 def main():
     # Arguments parsing
     parser = ArgumentParser()
-    parser.add_argument('--model', default=os.path.join(GROOT_ROOT_PATH, 'third_party/xmem_checkpoints/XMem.pth'))
-    parser.add_argument('--s2m_model', default=os.path.join(GROOT_ROOT_PATH, 'third_party/xmem_checkpoints/s2m.pth'))
-    parser.add_argument('--fbrs_model', default=os.path.join(GROOT_ROOT_PATH, 'third_party/xmem_checkpoints/fbrs.pth'))
+    parser.add_argument('--model', default=os.path.join(GROOT_ROOT_PATH, '../third_party/xmem_checkpoints/XMem.pth'))
+    parser.add_argument('--s2m_model', default=os.path.join(GROOT_ROOT_PATH, '../third_party/xmem_checkpoints/s2m.pth'))
+    parser.add_argument('--fbrs_model', default=os.path.join(GROOT_ROOT_PATH, '../third_party/xmem_checkpoints/fbrs.pth'))
 
     """
     Priority 1: If a "images" folder exists in the workspace, we will read from that directory
@@ -123,6 +123,7 @@ def main():
             args.real = f["data"].attrs["real"]
     # annotation_path = # os.path.join(annotation_folder, dataset_folder_name)
     annotation_path = get_annotation_path(args.dataset_path)
+    print(annotation_path)
     tmp_path = tmp_folder
     os.makedirs(annotation_path, exist_ok=True)
     os.makedirs(tmp_path, exist_ok=True)
